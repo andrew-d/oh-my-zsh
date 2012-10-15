@@ -8,7 +8,7 @@ function parse_git_branch() {
 }
 
 function git_info() {
-    [[ -n $(git branch 2> /dev/null) ]] && echo "on $PURPLE$(parse_git_branch)$RESET"
+    [[ -n $(git branch 2> /dev/null) ]] && echo "on %{$PURPLE%}$(parse_git_branch)%{$RESET%}"
 }
 
 function virtualenv_info() {
@@ -21,6 +21,6 @@ function battery_charge() {
 
 # RPROMPT='$(battery_charge)'
 
-PROMPT='$BOLD$MAGENTA%n$RESET at $ORANGE%m$RESET in $GREEN%~$RESET $(git_info)
-$RESET$ '
+PROMPT='%{$BOLD%}%{$MAGENTA%}%n%{$RESET%} at %{$ORANGE%}%m%{$RESET%} in %{$GREEN%}%~%{$RESET%} $(git_info)
+%{$RESET%}$ '
 
